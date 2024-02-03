@@ -13,7 +13,6 @@ public class Service {
 
     public static void main(String[] args) {
         FileStore store = new FileStore();
-        /*      MemoryStore store = new MemoryStore();    */
         Service service = new Service(store);
         service.add();
     }

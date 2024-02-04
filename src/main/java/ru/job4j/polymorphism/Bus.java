@@ -1,6 +1,8 @@
 package ru.job4j.polymorphism;
 
 public class Bus implements Transport {
+    private static final int PRICE = 51;
+
     @Override
     public void drive() {
         System.out.println("Автобус начинает движение.");
@@ -13,7 +15,6 @@ public class Bus implements Transport {
 
     @Override
     public int refill(int fuel) {
-        int price = 51;
-        return price * fuel;
+        return PRICE * fuel;
     }
 }

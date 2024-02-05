@@ -6,9 +6,11 @@ public class FindEl {
         for (int i = 0; i < value.length; i++) {
             if (value[i].equals(key)) {
                 result = i;
-            } else {
-                throw new ElementNotFoundException("There is no such element.");
+                break;
             }
+        }
+        if (result == -1) {
+            throw new ElementNotFoundException("There is no such element.");
         }
         return result;
     }
@@ -16,7 +18,7 @@ public class FindEl {
     public static void main(String[] args) {
         String[] str = new String[]{"i", "you", "he", "she", "they"};
         try {
-            System.out.println(indexOf(str, "je"));
+            System.out.println(indexOf(str, "he"));
         } catch (ElementNotFoundException e) {
             throw new RuntimeException(e);
         }

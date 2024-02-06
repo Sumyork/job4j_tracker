@@ -9,37 +9,31 @@ public class PasswordValidator {
                     "Password can't be null"
             );
         }
-        for (String str : FORBIDDEN) {
-            if (password.toLowerCase().contains(str)) {
-                throw new IllegalArgumentException(
-                        "Password shouldn't contain substrings: qwerty, 12345, password, admin, user"
-                );
-            }
+        if (password.length() < 8 || password.length() > 32) {
+            throw new IllegalArgumentException(
+                    "Password should be length [8, 32]"
+            );
         }
         boolean hasUpCase = false;
         boolean hasLowCase = false;
         boolean hasDigit = false;
         boolean hasSpecial = false;
         for (char symbol : password.toCharArray()) {
-            if (password.length() < 8 || password.length() > 32) {
-                throw new IllegalArgumentException(
-                        "Password should be length [8, 32]"
-                );
-            }
+
             if (Character.isUpperCase(symbol)) {
                 hasUpCase = true;
-                continue;
             }
             if (Character.isLowerCase(symbol)) {
                 hasLowCase = true;
-                continue;
             }
             if (Character.isDigit(symbol)) {
                 hasDigit = true;
-                continue;
             }
             if (!Character.isLetterOrDigit(symbol)) {
                 hasSpecial = true;
+            }
+            if (hasUpCase && hasLowCase && hasDigit && hasSpecial) {
+                break;
             }
         }
         if (!hasUpCase) {
@@ -61,6 +55,13 @@ public class PasswordValidator {
             throw new IllegalArgumentException(
                     "Password should contain at least one special symbol"
             );
+        }
+        for (String str : FORBIDDEN) {
+            if (password.toLowerCase().contains(str)) {
+                throw new IllegalArgumentException(
+                        "Password shouldn't contain substrings: qwerty, 12345, password, admin, user"
+                );
+            }
         }
         return password;
     }

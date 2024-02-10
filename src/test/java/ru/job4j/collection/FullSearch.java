@@ -5,6 +5,7 @@ import java.util.List;
 
 public class FullSearch {
     HashSet<String> uniqueTasks = new HashSet<>();
+
     public HashSet<String> extractNumber(List<Task> tasks) {
         for (Task task : tasks) {
             uniqueTasks.add(task.getNumber());

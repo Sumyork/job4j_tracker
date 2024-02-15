@@ -60,8 +60,7 @@ public class AnalyzeByMap {
             labels.add(new Label(pupil.name(), averageScoreOfPupil));
             averageScoreOfPupil = 0;
         }
-        labels.sort(Comparator.naturalOrder());
-        return labels.get(labels.size() - 1);
+        return getBestLabel(labels);
     }
 
     public static Label bestSubject(List<Pupil> pupils) {
@@ -76,7 +75,18 @@ public class AnalyzeByMap {
         for (Map.Entry<String, Integer> entry : gradesBySubject.entrySet()) {
             labels.add(new Label(entry.getKey(), (double) entry.getValue()));
         }
-        labels.sort(Comparator.naturalOrder());
-        return labels.get(labels.size() - 1);
+        return getBestLabel(labels);
+    }
+
+    private static Label getBestLabel(List<Label> labels) {
+        int keySubject = 0;
+        double temp = labels.get(0).score();
+        for (int index = 1; index < labels.size(); index++) {
+            if (temp < labels.get(index).score()) {
+                temp = labels.get(index).score();
+                keySubject = index;
+            }
+        }
+        return labels.get(keySubject);
     }
 }

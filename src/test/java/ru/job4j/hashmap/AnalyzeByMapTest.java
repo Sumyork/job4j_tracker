@@ -110,18 +110,18 @@ class AnalyzeByMapTest {
     public void whenBestPupil() {
         Label best = AnalyzeByMap.bestStudent(
                 List.of(
-                        new Pupil("Ivanov",
-                                List.of(
-                                        new Subject("Math", 100),
-                                        new Subject("Lang", 60),
-                                        new Subject("Philosophy", 80)
-                                )
-                        ),
                         new Pupil("Petrov",
                                 List.of(
                                         new Subject("Math", 80),
                                         new Subject("Lang", 80),
                                         new Subject("Philosophy", 70)
+                                )
+                        ),
+                        new Pupil("Ivanov",
+                                List.of(
+                                        new Subject("Math", 100),
+                                        new Subject("Lang", 60),
+                                        new Subject("Philosophy", 80)
                                 )
                         ),
                         new Pupil("Sidorov",
@@ -142,9 +142,9 @@ class AnalyzeByMapTest {
                 List.of(
                         new Pupil("Ivanov",
                                 List.of(
-                                        new Subject("Math", 100),
+                                        new Subject("Math", 70),
                                         new Subject("Lang", 60),
-                                        new Subject("Philosophy", 80)
+                                        new Subject("Philosophy", 100)
                                 )
                         ),
                         new Pupil("Petrov",
@@ -156,13 +156,13 @@ class AnalyzeByMapTest {
                         ),
                         new Pupil("Sidorov",
                                 List.of(
-                                        new Subject("Philosophy", 50),
+                                        new Subject("Philosophy", 70),
                                         new Subject("Math", 70),
                                         new Subject("Lang", 60)
                                 )
                         )
                 )
         );
-        assertThat(best).isEqualTo(new Label("Math", 250D));
+        assertThat(best).isEqualTo(new Label("Philosophy", 240D));
     }
 }

@@ -79,14 +79,14 @@ public class AnalyzeByMap {
     }
 
     private static Label getBestLabel(List<Label> labels) {
-        int keySubject = 0;
+        Label labelResult = new Label(labels.get(0).name(), labels.get(0).score());
         double temp = labels.get(0).score();
-        for (int index = 1; index < labels.size(); index++) {
-            if (temp < labels.get(index).score()) {
-                temp = labels.get(index).score();
-                keySubject = index;
+        for (Label label : labels) {
+            if (label.score() > temp) {
+                temp = label.score();
+                labelResult = new Label(label.name(), temp);
             }
         }
-        return labels.get(keySubject);
+        return labelResult;
     }
 }

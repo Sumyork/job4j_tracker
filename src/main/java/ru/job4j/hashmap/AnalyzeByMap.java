@@ -79,8 +79,8 @@ public class AnalyzeByMap {
     }
 
     private static Label getBestLabel(List<Label> labels) {
-        Label labelResult = new Label(labels.get(0).name(), labels.get(0).score());
-        double temp = labels.get(0).score();
+        Label labelResult = null;
+        double temp = 0;
         for (Label label : labels) {
             if (label.score() > temp) {
                 temp = label.score();

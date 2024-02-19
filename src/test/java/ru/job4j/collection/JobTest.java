@@ -12,17 +12,17 @@ class JobTest {
         Comparator<Job> cmpNamePriority = new JobAscByName().thenComparing(new JobAscByPriority());
         int result = cmpNamePriority.compare(
                 new Job("Impl task", 1),
-                new Job("Fix bug", 2)
+                new Job("Impl task", 2)
         );
-        assertThat(result).isGreaterThan(0);
+        assertThat(result).isLessThan(0);
     }
 
     @Test
     public void whenComparatorDescByNameAndProperty() {
         Comparator<Job> cmpNamePriority = new JobDescByName().thenComparing(new JobDescByPriority());
         int result = cmpNamePriority.compare(
-                new Job("Impl task", 1),
-                new Job("Fix bug", 2)
+                new Job("Impl task", 2),
+                new Job("Impl task", 1)
         );
         assertThat(result).isLessThan(0);
     }

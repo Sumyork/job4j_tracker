@@ -7,6 +7,7 @@ import java.util.Map;
 
 /**
  * Класс описывает работу банковского сервиса.
+ * http://localhost:63342/job4j_tracker/target/site/apidocs/ru/job4j/bank/BankService.html?_ijt=og4n6pm60u0d1bd5j1l0b778b9&_ij_reload=RELOAD_ON_SAVE
  */
 public class BankService {
     /**

@@ -31,7 +31,7 @@ public class StringCompareTest {
                 "Petrov",
                 "Ivanova"
         );
-        assertThat(result).isLessThan(0);
+        assertThat(result).isGreaterThan(0);
     }
 
     @Test

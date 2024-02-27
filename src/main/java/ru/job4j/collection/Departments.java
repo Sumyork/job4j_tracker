@@ -13,7 +13,7 @@ public class Departments {
             StringBuilder start = new StringBuilder();
             for (String element : value.split("/")) {
                 if (element.length() == 2) {
-                    start = new StringBuilder(element);
+                    start.append(element);
                     temp.add(String.valueOf(start));
                 } else {
                     temp.add(String.valueOf(start.append("/").append(element)));

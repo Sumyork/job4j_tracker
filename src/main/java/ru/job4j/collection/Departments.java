@@ -10,14 +10,10 @@ public class Departments {
     public static List<String> fillGaps(List<String> departments) {
         Set<String> temp = new LinkedHashSet<>();
         for (String value : departments) {
-            StringBuilder start = new StringBuilder();
+            String start = "";
             for (String element : value.split("/")) {
-                if (element.length() == 2) {
-                    start.append(element);
-                    temp.add(String.valueOf(start));
-                } else {
-                    temp.add(String.valueOf(start.append("/").append(element)));
-                }
+                start += "".equals(start) ? element : "/" + element;
+                temp.add(start);
             }
         }
         return new ArrayList<>(temp);

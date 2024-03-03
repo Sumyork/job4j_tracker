@@ -34,21 +34,6 @@ public class AnalyzeByMap {
         return labels;
     }
 
-//    public static List<Label> averageScoreBySubject(List<Pupil> pupils) {
-//        Map<String, Integer> gradesBySubject = new LinkedHashMap<>();
-//        List<Label> labels = new ArrayList<>();
-//        for (Pupil pupil : pupils) {
-//            List<Subject> subjects = pupil.subjects();
-//            for (Subject subject : subjects) {
-//                gradesBySubject.put(subject.name(), gradesBySubject.getOrDefault(subject.name(),  0) + subject.score());
-//            }
-//        }
-//        for (Map.Entry<String, Integer> entry : gradesBySubject.entrySet()) {
-//            labels.add(new Label(entry.getKey(), (double) entry.getValue() / pupils.size()));
-//        }
-//        return labels;
-//    }
-
     public static List<Label> averageScoreBySubject(List<Pupil> pupils) {
         Map<String, Integer> gradesBySubject = new LinkedHashMap<>();
         List<Label> labels = new ArrayList<>();
